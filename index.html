@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>MintyNex – The Ultimate Pokémon TCG Trading Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+<div id="pokemon-bg" aria-hidden="true"></div>
+
+z<nav class="mnav" id="mnav">
+  <div class="mnav-inner">
+    <a class="mnav-logo" href="#">
+      <span class="logo-icon">🌿</span>
+      <span class="logo-text">Minty<span class="gold">Nex</span></span>
+    </a>
+    <div class="mnav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#community">Community</a>
+      <a href="#trust">Trust & Safety</a>
+    </div>
+    <div class="mnav-cta">
+      <a href="app.html" class="btn-ghost">Log In</a>
+      <a href="app.html#signup" class="btn-primary">Get Started Free</a>
+    </div>
+    <button class="mnav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mnav-mobile" id="mobileMenu">
+    <a href="#features" onclick="closeMobile()">Features</a>
+    <a href="#how" onclick="closeMobile()">How It Works</a>
+    <a href="#community" onclick="closeMobile()">Community</a>
+    <a href="app.html" class="btn-primary" style="text-align:center">Launch App →</a>
+  </div>
+</nav>
+
+<!-- ========= HERO ========= -->
+<section class="hero-sec" id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="pulse-dot"></span>
+      <span>2,400+ Trainers Online Now</span>
+    </div>
+    <h1 class="hero-title">
+      Trade. Collect.<br>
+      <span class="gradient-text">Dominate.</span>
+    </h1>
+    <p class="hero-sub">
+      MintyNex is the ultimate Pokémon TCG marketplace for African and global trainers.
+      Grade your cards, find trade partners, and build your collection—all in one place.
+    </p>
+    <div class="hero-actions">
+      <a href="app.html" class="btn-primary btn-xl">
+        Start Trading Free
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <a href="#features" class="btn-ghost btn-xl">See Features</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-val">50K+</span><span class="hstat-lbl">Cards Listed</span></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><span class="hstat-val">12K+</span><span class="hstat-lbl">Trainers</span></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><span class="hstat-val">98%</span><span class="hstat-lbl">Safe Trades</span></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><span class="hstat-val">4.9★</span><span class="hstat-lbl">Avg Rep</span></div>
+    </div>
+  </div>
+
+  <!-- Showcase cards -->
+  <div class="hero-cards-showcase" id="heroCards">
+    <div class="showcase-card card-1" data-depth="0.2">
+      <div class="sc-inner" style="background:radial-gradient(ellipse at 35% 25%,#fbbf24,#f97316,#c2410c,#7f1d1d)">
+        <img src="https://images.pokemontcg.io/swsh45/19_hires.png" alt="Charizard VMAX" loading="lazy">
+        <div class="sc-label">🔥 Charizard VMAX — PSA 10</div>
+      </div>
+    </div>
+    <div class="showcase-card card-2" data-depth="0.4">
+      <div class="sc-inner" style="background:radial-gradient(ellipse at 35% 25%,#e0f2fe,#38bdf8,#0284c7,#082f49)">
+        <img src="https://images.pokemontcg.io/swsh10/186_hires.png" alt="Lugia V" loading="lazy">
+        <div class="sc-label">💧 Lugia V Alt Art — BGS 9.5</div>
+      </div>
+    </div>
+    <div class="showcase-card card-3" data-depth="0.3">
+      <div class="sc-inner" style="background:radial-gradient(ellipse at 35% 25%,#fef08a,#4ade80,#16a34a,#052e16)">
+        <img src="https://images.pokemontcg.io/swsh7/218_hires.png" alt="Rayquaza VMAX" loading="lazy">
+        <div class="sc-label">🌈 Rayquaza VMAX — PSA 9</div>
+      </div>
+    </div>
+    <div class="showcase-card card-4" data-depth="0.5">
+      <div class="sc-inner" style="background:radial-gradient(ellipse at 35% 25%,#fdf4ff,#d946ef,#7e22ce,#3b0764)">
+        <img src="https://images.pokemontcg.io/sv2/86_hires.png" alt="Gardevoir ex" loading="lazy">
+        <div class="sc-label">👻 Gardevoir ex — PSA 9</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FEATURES ========= -->
+<section class="features-sec" id="features">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-tag">Everything You Need</div>
+      <h2 class="sec-title">Built for Serious Trainers</h2>
+      <p class="sec-sub">One platform. Every feature a Pokémon TCG collector needs to thrive.</p>
+    </div>
+    <div class="features-grid">
+
+      <div class="feat-card feat-large">
+        <div class="feat-icon">📦</div>
+        <h3>Digital Card Binder</h3>
+        <p>Store, organise and showcase your entire collection with beautiful holographic card previews. Track grades from PSA, BGS, and more. Filter by set, type, grade — all instant.</p>
+        <div class="feat-preview binder-preview">
+          <div class="mini-card mc1"><img src="https://images.pokemontcg.io/swsh45/19_hires.png" alt="" loading="lazy"></div>
+          <div class="mini-card mc2"><img src="https://images.pokemontcg.io/swsh10/186_hires.png" alt="" loading="lazy"></div>
+          <div class="mini-card mc3"><img src="https://images.pokemontcg.io/swsh7/218_hires.png" alt="" loading="lazy"></div>
+          <div class="mini-card mc4"><img src="https://images.pokemontcg.io/sv2/86_hires.png" alt="" loading="lazy"></div>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">⚔️</div>
+        <h3>Safe Card Trading</h3>
+        <p>Propose, negotiate, and complete trades with verified trainers. Built-in meetup coordination and trade protection for every deal.</p>
+        <div class="feat-tags">
+          <span class="ftag ftag-grn">✓ Verified Partners</span>
+          <span class="ftag ftag-blue">✓ Meetup Planner</span>
+          <span class="ftag ftag-gold">✓ Trade History</span>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">🛒</div>
+        <h3>Marketplace & Mart</h3>
+        <p>Buy and sell cards directly. Browse thousands of listings from trainers across Africa and the globe. Instant add-to-cart, no middlemen.</p>
+        <div class="feat-tags">
+          <span class="ftag ftag-grn">✓ Buy Now</span>
+          <span class="ftag ftag-blue">✓ Price Guide</span>
+          <span class="ftag ftag-gold">✓ Sell Fast</span>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">🏆</div>
+        <h3>Trainer Leaderboards</h3>
+        <p>Earn XP with every trade, post, and rep. Climb the ranks from Rookie to Elite Trainer and earn your Verified badge.</p>
+        <div class="rank-preview">
+          <div class="rank-row r1"><span>🔥</span><span>TrainerAsh_KE</span><span class="rank-pts">4.9★</span></div>
+          <div class="rank-row r2"><span>💧</span><span>ShinySister_TZ</span><span class="rank-pts">5.0★</span></div>
+          <div class="rank-row r3"><span>👑</span><span>PokeKing_NG</span><span class="rank-pts">4.9★</span></div>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">📱</div>
+        <h3>Community Feed</h3>
+        <p>Show off your pulls, comment on others' collections, and stay up-to-date with the African Pokémon TCG community. Like, comment, and trade directly from the feed.</p>
+        <div class="feat-tags">
+          <span class="ftag ftag-grn">✓ Pull Posts</span>
+          <span class="ftag ftag-blue">✓ Comments</span>
+          <span class="ftag ftag-gold">✓ Trade Links</span>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">💬</div>
+        <h3>Direct Messaging</h3>
+        <p>Chat privately with any trainer, negotiate deals, and arrange meetups — all without leaving the app. Real-time messaging built-in.</p>
+        <div class="feat-tags">
+          <span class="ftag ftag-grn">✓ Real-Time</span>
+          <span class="ftag ftag-blue">✓ Trade Threads</span>
+          <span class="ftag ftag-gold">✓ Read Receipts</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========= HOW IT WORKS ========= -->
+<section class="how-sec" id="how">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-tag">Simple by Design</div>
+      <h2 class="sec-title">Up and Trading in Minutes</h2>
+      <p class="sec-sub">No complicated setup. Just sign up and start collecting.</p>
+    </div>
+    <div class="steps-row">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-icon">✍️</div>
+        <h4>Create Your Account</h4>
+        <p>Sign up free. Set your trainer name, country, and profile photo. No credit card needed.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-icon">📦</div>
+        <h4>Build Your Binder</h4>
+        <p>Add your cards with grades, conditions, and photos. Your digital collection is always ready to show off.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-icon">🤝</div>
+        <h4>Find Trade Partners</h4>
+        <p>Search thousands of verified trainers by card, location, or rep score. Propose trades with one tap.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <div class="step-icon">🏆</div>
+        <h4>Level Up & Get Verified</h4>
+        <p>Earn XP, build reputation, and unlock your Verified Trainer badge for maximum trust.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= TRUST & SAFETY ========= -->
+<section class="trust-sec" id="trust">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-text">
+        <div class="sec-tag">Zero Tolerance for Scammers</div>
+        <h2 class="sec-title">Trade with Total Confidence</h2>
+        <p class="trust-p">MintyNex was built for the African Pokémon TCG community — a market where trust matters above everything. Every feature is designed to protect your cards and your wallet.</p>
+        <ul class="trust-list">
+          <li><span class="tl-icon">🛡️</span><div><strong>ID Verification</strong><br>Verified trainers submit a government ID, reviewed by our Trust & Safety team within 24–48 hours.</div></li>
+          <li><span class="tl-icon">⭐</span><div><strong>Reputation System</strong><br>Every completed trade earns a rep score. Filter partners by their rating before committing.</div></li>
+          <li><span class="tl-icon">🔒</span><div><strong>Admin Moderation</strong><br>Reports are reviewed by real admins. Sanctioned users are removed fast. No second chances for scammers.</div></li>
+          <li><span class="tl-icon">📍</span><div><strong>Meetup Coordination</strong><br>Built-in meetup location planner so you can always trade safely in public places.</div></li>
+        </ul>
+        <a href="app.html" class="btn-primary">Get Verified Today</a>
+      </div>
+      <div class="trust-visual">
+        <div class="verify-card">
+          <div class="vc-top">
+            <div class="vc-av">🔥</div>
+            <div>
+              <div class="vc-nm">TrainerAsh_KE <span class="vc-badge">✓ Verified</span></div>
+              <div class="vc-loc">📍 Nairobi, Kenya</div>
+            </div>
+          </div>
+          <div class="vc-stats">
+            <div class="vcs"><span>142</span><small>Cards</small></div>
+            <div class="vcs"><span>38</span><small>Trades</small></div>
+            <div class="vcs"><span>4.9★</span><small>Rep</small></div>
+          </div>
+          <div class="vc-rep-bar">
+            <div class="vc-rep-fill"></div>
+          </div>
+          <div class="vc-actions">
+            <button class="vc-btn-trade">⇌ Propose Trade</button>
+            <button class="vc-btn-msg">💬 Message</button>
+          </div>
+        </div>
+        <div class="trust-badges">
+          <div class="tb"><span>🔐</span> ID Verified</div>
+          <div class="tb"><span>🌍</span> Africa-first</div>
+          <div class="tb"><span>⚡</span> Real-time</div>
+          <div class="tb"><span>🏅</span> Rep Ranked</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= COMMUNITY SHOWCASE ========= -->
+<section class="community-sec" id="community">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-tag">Real Trainers, Real Pulls</div>
+      <h2 class="sec-title">Join the Community</h2>
+      <p class="sec-sub">Thousands of African trainers share their best pulls every day.</p>
+    </div>
+    <div class="community-feed">
+      <div class="cf-post">
+        <div class="cf-head">
+          <div class="cf-av">🔥</div>
+          <div><div class="cf-nm">TrainerAsh_KE <span class="verified-tag">✓</span></div><div class="cf-loc">🇰🇪 Nairobi</div></div>
+        </div>
+        <div class="cf-img" style="background:radial-gradient(ellipse at 35% 25%,#fbbf24,#f97316,#c2410c,#7f1d1d)">
+          <img src="https://images.pokemontcg.io/swsh45/19_hires.png" alt="Charizard VMAX" loading="lazy">
+        </div>
+        <div class="cf-cap">Just pulled this BEAST! Anyone trade for Lugia V Alt Art? 🔥</div>
+        <div class="cf-acts"><span>❤️ 143</span><span>💬 12</span><span>⇌ Trade</span></div>
+      </div>
+      <div class="cf-post">
+        <div class="cf-head">
+          <div class="cf-av">💧</div>
+          <div><div class="cf-nm">ShinySister_TZ <span class="verified-tag">✓</span></div><div class="cf-loc">🇹🇿 Dar es Salaam</div></div>
+        </div>
+        <div class="cf-img" style="background:radial-gradient(ellipse at 35% 25%,#e0f2fe,#38bdf8,#0284c7,#082f49)">
+          <img src="https://images.pokemontcg.io/swsh10/186_hires.png" alt="Lugia" loading="lazy">
+        </div>
+        <div class="cf-cap">My pride and joy! Not for sale - just flexing 💙 BGS 9.5 baby!</div>
+        <div class="cf-acts"><span>❤️ 89</span><span>💬 8</span><span>⇌ Trade</span></div>
+      </div>
+      <div class="cf-post">
+        <div class="cf-head">
+          <div class="cf-av">⚡</div>
+          <div><div class="cf-nm">CardBoss_GH <span class="verified-tag">✓</span></div><div class="cf-loc">🇬🇭 Accra</div></div>
+        </div>
+        <div class="cf-img" style="background:radial-gradient(ellipse at 35% 25%,#fef08a,#4ade80,#16a34a,#052e16)">
+          <img src="https://images.pokemontcg.io/swsh7/218_hires.png" alt="Rayquaza" loading="lazy">
+        </div>
+        <div class="cf-cap">Submitted to PSA! Fingers crossed for a 10! 🌈🔥</div>
+        <div class="cf-acts"><span>❤️ 203</span><span>💬 15</span><span>⇌ Trade</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px">
+      <a href="app.html" class="btn-primary btn-xl">Join the Community →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========= CTA BANNER ========= -->
+<section class="cta-sec">
+  <div class="cta-pokemon-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-emoji-row" aria-hidden="true">🔥💧🌿⚡🌈👑🌙⭐</div>
+      <h2 class="cta-title">Ready to Start Your Journey?</h2>
+      <p class="cta-sub">Join thousands of trainers trading safely across Africa and beyond.</p>
+      <div class="cta-actions">
+        <a href="app.html" class="btn-primary btn-xl">
+          Create Free Account
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="app.html" class="btn-ghost btn-xl">Log In</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="mnav-logo">
+          <span class="logo-icon">🌿</span>
+          <span class="logo-text">Minty<span class="gold">Nex</span></span>
+        </div>
+        <p>The #1 Pokémon TCG trading platform built for Africa and beyond.</p>
+      </div>
+      <div class="footer-links">
+        <div class="fl-col">
+          <div class="fl-head">Platform</div>
+          <a href="app.html">Card Binder</a>
+          <a href="app.html">Trade Center</a>
+          <a href="app.html">Marketplace</a>
+          <a href="app.html">Community</a>
+        </div>
+        <div class="fl-col">
+          <div class="fl-head">Community</div>
+          <a href="#">Find Players</a>
+          <a href="#">Leaderboards</a>
+          <a href="#">Verification</a>
+          <a href="#">Discord</a>
+        </div>
+        <div class="fl-col">
+          <div class="fl-head">Support</div>
+          <a href="#">Help Center</a>
+          <a href="#">Safety Guide</a>
+          <a href="#">Report Scammer</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MintyNex. Built with ❤️ for the African Pokémon community.</span>
+      <span>Pokémon and all related names are trademarks of Nintendo/Game Freak/Creatures Inc.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="js/landing.js"></script>
+</body>
+</html>
