@@ -1,6 +1,7 @@
 /* ===================================================
    MINTYNEX LANDING PAGE - JavaScript
    Full HD Pokemon Character Floating Background
+   Unified Pokéball Logo | Enhanced Animations
    =================================================== */
 
 // High-quality official Pokemon artwork PNGs from PokeAPI
@@ -25,7 +26,7 @@ const POKEMON_CHARS = [
   { name:'vaporeon',   src:'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png' },
 ];
 
-// Positions spread evenly so no clustering
+// Positions spread evenly
 const POSITIONS = [
   { l:2,   t:5  }, { l:18,  t:72 }, { l:35,  t:8  }, { l:52,  t:68 },
   { l:68,  t:3  }, { l:82,  t:60 }, { l:8,   t:40 }, { l:44,  t:35 },
@@ -34,7 +35,7 @@ const POSITIONS = [
   { l:5,   t:58 }, { l:92,  t:18 },
 ];
 
-const ANIMS = ['pkFloatA','pkFloatB','pkFloatC','pkFloatD','pkFloatE','pkFloatF'];
+const ANIMS = ['pkFloatA','pkFloatB','pkFloatC'];
 const GLOWS = [
   'drop-shadow(0 0 18px rgba(255,215,0,0.55))',
   'drop-shadow(0 0 18px rgba(255,90,30,0.55))',
@@ -42,8 +43,6 @@ const GLOWS = [
   'drop-shadow(0 0 18px rgba(80,160,255,0.55))',
   'drop-shadow(0 0 18px rgba(210,100,255,0.55))',
   'drop-shadow(0 0 18px rgba(255,160,200,0.55))',
-  'drop-shadow(0 0 18px rgba(100,220,255,0.55))',
-  'drop-shadow(0 0 18px rgba(255,200,80,0.55))',
 ];
 
 function createFloatingPokemon() {
@@ -52,7 +51,7 @@ function createFloatingPokemon() {
   container.innerHTML = '';
 
   const isMobile = window.innerWidth < 768;
-  const list = isMobile ? POKEMON_CHARS.slice(0, 8) : POKEMON_CHARS;
+  const list = isMobile ? POKEMON_CHARS.slice(0, 10) : POKEMON_CHARS;
 
   list.forEach((pkm, i) => {
     const pos   = POSITIONS[i % POSITIONS.length];
@@ -60,12 +59,10 @@ function createFloatingPokemon() {
     const glow  = GLOWS[i % GLOWS.length];
     const dur   = (6 + (i * 1.3) % 6).toFixed(1);
     const del   = -((i * 1.7) % 7).toFixed(1);
-    const size  = isMobile
-      ? (70 + (i * 17) % 50)
-      : (90 + (i * 23) % 80);
+    const size  = isMobile ? (70 + (i * 17) % 50) : (90 + (i * 23) % 80);
 
     const el = document.createElement('div');
-    el.className = 'pkm-char';
+    el.className = 'pkm-float';
     el.style.cssText = `
       position:absolute;
       left:${pos.l}%;
@@ -91,12 +88,10 @@ function createFloatingPokemon() {
       opacity:0;
       transition:opacity 0.8s ease, filter 0.5s ease;
       filter:${glow} brightness(1.05) saturate(1.15);
-      -webkit-filter:${glow} brightness(1.05) saturate(1.15);
-      image-rendering:auto;
     `;
 
     img.onload = () => {
-      img.style.opacity = isMobile ? '0.22' : '0.18';
+      img.style.opacity = isMobile ? '0.22' : '0.16';
     };
     img.onerror = () => { el.style.display = 'none'; };
 
@@ -105,7 +100,7 @@ function createFloatingPokemon() {
   });
 }
 
-// Same for CTA section
+// CTA section Pokemon
 function createCtaPokemon() {
   const container = document.querySelector('.cta-pokemon-bg');
   if (!container) return;
@@ -128,10 +123,38 @@ function createCtaPokemon() {
     img.alt = pkm.name;
     img.loading = 'lazy';
     img.style.cssText = `width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 0.8s;filter:drop-shadow(0 0 14px rgba(255,255,255,0.3)) brightness(1.1);`;
-    img.onload = () => { img.style.opacity = '0.14'; };
+    img.onload = () => { img.style.opacity = '0.12'; };
     img.onerror = () => { el.style.display='none'; };
     el.appendChild(img);
     container.appendChild(el);
+  });
+}
+
+// Replace all mint leaf logos with Pokéball logo
+function replaceAllLogosWithPokeball() {
+  // Target all elements that might contain the old logo
+  const logoContainers = document.querySelectorAll('.mnav-logo, .footer-brand .mnav-logo, .logo-icon');
+  logoContainers.forEach(container => {
+    const existingBall = container.querySelector('.pokeball-logo');
+    if (!existingBall) {
+      const oldIcon = container.querySelector('.logo-icon, span:first-child');
+      if (oldIcon && oldIcon.textContent.includes('🌿')) {
+        const pokeballDiv = document.createElement('div');
+        pokeballDiv.className = 'pokeball-logo';
+        oldIcon.replaceWith(pokeballDiv);
+      }
+    }
+  });
+  
+  // Also handle any standalone logo icons
+  const icons = document.querySelectorAll('.logo-icon');
+  icons.forEach(icon => {
+    if (icon.textContent === '🌿' || icon.textContent.includes('🌿')) {
+      const pokeball = document.createElement('div');
+      pokeball.className = 'pokeball-logo';
+      icon.parentNode.insertBefore(pokeball, icon);
+      icon.remove();
+    }
   });
 }
 
@@ -165,13 +188,11 @@ function initReveal() {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const siblings = entry.target.parentElement.children;
-        const idx = Array.from(siblings).indexOf(entry.target);
-        setTimeout(() => entry.target.classList.add('visible'), idx * 80);
+        entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15, rootMargin:'0px 0px -30px 0px' });
+  }, { threshold: 0.1, rootMargin:'0px 0px -30px 0px' });
   els.forEach(el => observer.observe(el));
 }
 
@@ -220,7 +241,26 @@ function initSmoothLinks() {
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
       const target = document.querySelector(link.getAttribute('href'));
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior:'smooth' }); closeMobile(); }
+      if (target) { 
+        e.preventDefault(); 
+        target.scrollIntoView({ behavior:'smooth' }); 
+        closeMobile(); 
+      }
+    });
+  });
+}
+
+// ============== ADDITIONAL ANIMATIONS ==============
+function initHoverAnimations() {
+  // Add floating animation to stat cards on hover
+  const statCards = document.querySelectorAll('.stat-b, .feat-card');
+  statCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'transform 0.3s ease';
+      card.style.transform = 'translateY(-5px)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
     });
   });
 }
@@ -235,4 +275,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initCounters();
   initSmoothLinks();
+  initHoverAnimations();
+  replaceAllLogosWithPokeball();
+  
+  // Add animation classes to elements
+  document.querySelectorAll('.btn-primary, .btn-ghost').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      this.style.transform = 'scale(0.98)';
+      setTimeout(() => { this.style.transform = ''; }, 150);
+    });
+  });
 });
